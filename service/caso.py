@@ -1,6 +1,6 @@
 from settings import MONGO_DB, MONGO_HOST, MONGO_PORT
 from pymongo import MongoClient
-
+import logging
 import message.caso_pb2_grpc as caso_service
 import message.caso_pb2 as caso_messages
 
@@ -11,7 +11,8 @@ class CasoService(caso_service.CasoServicer):
         return db.casos
 
     def CrearCaso(self, request, context):
-        print("Insertando nuevo caso...")
+        logging.basicConfig(level=logging.INFO)
+        logging.info('Insertando nuevo caso...')
         casos = self.ConnectionMongo()
         nuevo_caso = {
             'nombre': request.nombre,

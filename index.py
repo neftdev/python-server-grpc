@@ -10,7 +10,7 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 PORT = 9000
 
-def server():
+def gprc_server():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     caso_service.add_CasoServicer_to_server(CasoService(), server)
     server.add_insecure_port(f'[::]:{PORT}')
@@ -23,6 +23,6 @@ def server():
 
 
 if __name__ == "__main__":
-    print('Starting server. Listening on port', PORT)
-    logging.basicConfig()
-    server()
+    logging.basicConfig(level=logging.INFO)
+    logging.info(f'Starting server. Listening on port {PORT}')
+    gprc_server()
