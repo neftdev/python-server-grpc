@@ -16,8 +16,8 @@ COPY --from=build-venv /venv /venv
 COPY . /app
 WORKDIR /app
 
-ARG MONGO_HOST
-ARG MONGO_PORT
-ARG MONGO_DB
+ARG MONGO_HOST="localhost"
+ARG MONGO_PORT=27017
+ARG MONGO_DB="example"
 EXPOSE 9000
 ENTRYPOINT ["/venv/bin/python", "index.py"]
