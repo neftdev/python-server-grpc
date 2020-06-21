@@ -19,5 +19,10 @@ WORKDIR /app
 ARG MONGO_HOST="localhost"
 ARG MONGO_PORT=27017
 ARG MONGO_DB="example"
+
+ARG REDIS_HOST="localhost"
+ARG REDIS_PORT=6379
+ARG REDIS_DB=0
+
 EXPOSE 9000
 ENTRYPOINT ["/venv/bin/python", "index.py"]

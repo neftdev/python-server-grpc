@@ -52,9 +52,12 @@ Las variables de entorno se pasan al comando de ejecución para configurar un co
 
 | Nombre     | Valor por defecto | Descripción                                                 |
 | ---------- | ----------------- | ----------------------------------------------------------- |
-| MONGO_HOST | "localhost"       | HOST donde se encuentra alojado la base de datos de MongoDB |
+| MONGO_HOST | "localhost"       | Host donde se encuentra alojado la base de datos de MongoDB |
 | MONGO_PORT | 27017             | Puerto de MongoDB                                           |
 | MONGO_DB   | "example"         | Nombre de la base de datos                                  |
+| REDIS_HOST | "localhost"       | Host donde se encuetra alojado la base de datos de Redis    |
+| REDIS_PORT | 6379              | Puerto de Redis                                             |
+| REDIS_DB   | 0                 | Base de datos de Redis                                      |
 
 #### Ejemplo
 
@@ -65,5 +68,8 @@ docker run -d \
   -e MONGO_HOST="localhost" \
   -e MONGO_PORT=27017 \
   -e MONGO_DB="example" \
+  -e REDIS_HOST="localhost" \
+  -e REDIS_PORT=6379 \
+  -e REDIS_DB=0 \
   neftxx/python-server-grpc
 ```
