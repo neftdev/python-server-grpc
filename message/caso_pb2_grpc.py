@@ -13,8 +13,8 @@ class CasoStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.CrearCaso = channel.unary_unary(
-                '/main.Caso/CrearCaso',
+        self.CrearCasos = channel.unary_unary(
+                '/main.Caso/CrearCasos',
                 request_serializer=caso__pb2.CasoRequest.SerializeToString,
                 response_deserializer=caso__pb2.CasoReply.FromString,
                 )
@@ -23,7 +23,7 @@ class CasoStub(object):
 class CasoServicer(object):
     """Missing associated documentation comment in .proto file"""
 
-    def CrearCaso(self, request, context):
+    def CrearCasos(self, request, context):
         """Missing associated documentation comment in .proto file"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -32,8 +32,8 @@ class CasoServicer(object):
 
 def add_CasoServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'CrearCaso': grpc.unary_unary_rpc_method_handler(
-                    servicer.CrearCaso,
+            'CrearCasos': grpc.unary_unary_rpc_method_handler(
+                    servicer.CrearCasos,
                     request_deserializer=caso__pb2.CasoRequest.FromString,
                     response_serializer=caso__pb2.CasoReply.SerializeToString,
             ),
@@ -48,7 +48,7 @@ class Caso(object):
     """Missing associated documentation comment in .proto file"""
 
     @staticmethod
-    def CrearCaso(request,
+    def CrearCasos(request,
             target,
             options=(),
             channel_credentials=None,
@@ -57,7 +57,7 @@ class Caso(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/main.Caso/CrearCaso',
+        return grpc.experimental.unary_unary(request, target, '/main.Caso/CrearCasos',
             caso__pb2.CasoRequest.SerializeToString,
             caso__pb2.CasoReply.FromString,
             options, channel_credentials,
